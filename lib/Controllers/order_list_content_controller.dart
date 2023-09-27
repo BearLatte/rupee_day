@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:rupee_day/models/order_list_item_model.dart';
 import 'package:rupee_day/views/order_tab/order_type.dart';
@@ -41,5 +42,9 @@ class OrderListContentController extends GetxController {
       'types': orderListModel.feedBackTypes,
       'order': order,
     })?.then((value) => fetchOrderList());
+  }
+
+  void itemOnTap(OrderListItemModel order) {
+    debugPrint('DEBUG: 选中当前order: ${order.toJson()}');
   }
 }

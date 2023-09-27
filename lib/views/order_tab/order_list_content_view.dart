@@ -42,15 +42,24 @@ class OrderListContentView extends StatelessWidget {
           return SwipeRefresh.cupertino(
             stateStream: controller.stream,
             onRefresh: controller.fetchOrderList,
-            children: controller.orders.value.map((order) => orderItem(order, addFeedbackAction: controller.addFeedbackAction)).toList(),
+            children: controller.orders.value
+                .map(
+                  (order) => orderItem(
+                    order,
+                    addFeedbackAction: controller.addFeedbackAction,
+                    onTap: () => controller.itemOnTap(order),
+                  ),
+                )
+                .toList(),
           );
         }
       }),
     );
   }
 
-  Widget orderItem(OrderListItemModel order, {required Function(OrderListItemModel order) addFeedbackAction}) {
+  Widget orderItem(OrderListItemModel order, {required Function(OrderListItemModel order) addFeedbackAction, required Function()? onTap}) {
     return ListTile(
+      onTap: onTap,
       title: Container(
         margin: const EdgeInsets.only(top: 10),
         padding: const EdgeInsets.fromLTRB(8, 20, 8, 20),

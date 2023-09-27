@@ -43,12 +43,7 @@ class OrderDetailView extends StatelessWidget {
               Column(
                 children: [
                   Container(
-                    padding: EdgeInsets.fromLTRB(
-                      20,
-                      10,
-                      20,
-                      controller.orderType.value != OrderType.throughFrozen ? 80 : 20,
-                    ),
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, controller.orderType.value != OrderType.throughFrozen ? 80 : 20),
                     child: Text(
                       controller.tipText.value,
                       textAlign: TextAlign.center,
