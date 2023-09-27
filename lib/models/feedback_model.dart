@@ -20,13 +20,13 @@ class FeedbackModel extends Object {
   String feedBackContent;
 
   @JsonKey(name: 'flkeewsdBackImg')
-  String feedBackImg;
+  String? feedBackImg;
 
   @JsonKey(name: 'rlkepwslyContent')
-  String replyContent;
+  String? replyContent;
 
   @JsonKey(name: 'rlkepwslyTime')
-  String replyTime;
+  String? replyTime;
 
   @JsonKey(name: 'flkeewsdBackState')
   int feedBackState;

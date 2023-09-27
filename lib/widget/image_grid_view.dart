@@ -31,7 +31,12 @@ class _ImageGridViewState extends State<ImageGridView> {
       child: SizedBox(
         width: itemWidth,
         height: itemHeight,
-        child: const CommonImage(src: 'asset/icons/add_img_icon.png'),
+        child: const CommonImage(
+          src: 'asset/icons/add_img_icon.png',
+          width: double.infinity,
+          height: double.infinity,
+          fit: BoxFit.cover,
+        ),
       ),
     );
 
@@ -51,7 +56,7 @@ class _ImageGridViewState extends State<ImageGridView> {
               child: Container(
                 height: 26,
                 decoration: BoxDecoration(color: ColorsUtil.hexColor(0xffffff, alpha: 0.4), borderRadius: BorderRadius.circular(13)),
-                child: IconButton(onPressed: () {}, icon: const CommonImage(src: 'asset/icons/img_del_icon.png')),
+                child: IconButton(onPressed: () => _deleteFile(file), icon: const CommonImage(src: 'asset/icons/img_del_icon.png')),
               ),
             ),
           ],
@@ -75,7 +80,7 @@ class _ImageGridViewState extends State<ImageGridView> {
                     height: itemHeight,
                     clipBehavior: Clip.hardEdge,
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(10)),
-                    child: CommonImage(src: imgUrl),
+                    child: CommonImage(src: imgUrl, fit: BoxFit.cover),
                   ),
                 )
                 .toList() ??
@@ -84,6 +89,15 @@ class _ImageGridViewState extends State<ImageGridView> {
     }
 
     return Wrap(spacing: 12, runSpacing: 10, children: getList());
+  }
+
+  void _deleteFile(File currentImg) {
+    int index = files.indexOf(currentImg);
+    setState(() {
+      files.removeAt(index);
+      uploadedImages.removeAt(index);
+      if (widget.onChanged != null) widget.onChanged!(uploadedImages);
+    });
   }
 
   void _pickImage() async {
@@ -107,6 +121,5 @@ class _ImageGridViewState extends State<ImageGridView> {
     setState(() {
       files.add(File(imgFile.path));
     });
-    debugPrint('DEBUG: 上传完成$imgUrl');
   }
 }

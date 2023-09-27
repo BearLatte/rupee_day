@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/util/colors_util.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/views/loan_tab/index.dart';
 import 'package:rupee_day/views/me_tab/index.dart';
 import 'package:rupee_day/views/order_tab/index.dart';

@@ -4,7 +4,7 @@ import 'package:rupee_day/Controllers/order_detail_controller.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_view.dart';
 import 'package:rupee_day/models/product_model.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/views/Product/product_list_item_view.dart';
 import 'package:rupee_day/views/order_tab/order_type.dart';
 
@@ -20,11 +20,7 @@ class OrderDetailView extends StatelessWidget {
       () => CommonView(
         title: controller.title.value,
         isDarkStatusBar: controller.isDarkMode.value,
-        child: controller.orderType.value == OrderType.none
-            ? Container()
-            : (controller.isDarkMode.value
-                ? darkModeContentView()
-                : bannerContentView()),
+        child: controller.orderType.value == OrderType.none ? Container() : (controller.isDarkMode.value ? darkModeContentView() : bannerContentView()),
       ),
     );
   }
@@ -51,9 +47,7 @@ class OrderDetailView extends StatelessWidget {
                       20,
                       10,
                       20,
-                      controller.orderType.value != OrderType.throughFrozen
-                          ? 80
-                          : 20,
+                      controller.orderType.value != OrderType.throughFrozen ? 80 : 20,
                     ),
                     child: Text(
                       controller.tipText.value,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 
 class CommonTextButton extends StatelessWidget {
   final String title;

@@ -21,6 +21,8 @@ abstract class AppRoutes {
   // Feedback
   static const FeedbackList = '/feedbackListView';
   static const FeedbackGenerate = '/feedbackGenerate';
+  static const FeedbackGenerateSuccess = '/feedbackGenerateSuccess';
+  static const FeedbackDetail = '/feedbackDetail';
 
   // Profile
   static const ChangeBankCard = '/changeBankCard';

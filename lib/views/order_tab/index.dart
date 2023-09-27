@@ -4,7 +4,7 @@ import 'package:rupee_day/Controllers/order_tab_controller.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_view.dart';
 import 'package:rupee_day/util/colors_util.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/views/order_tab/order_list_content_view.dart';
 
 class OrderTab extends StatelessWidget {

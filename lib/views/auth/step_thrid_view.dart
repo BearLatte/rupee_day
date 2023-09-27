@@ -6,7 +6,7 @@ import 'package:rupee_day/Controllers/auth_third_controller.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/widget/contact_item_widget.dart';
 import 'package:rupee_day/widget/hidden_keyboard_wraper.dart';
 
@@ -81,12 +81,9 @@ class StepThridView extends StatelessWidget {
                     (index) {
                       return ContactItemWidget(
                         isPhoneEnable: controller.isEnableInput.value,
-                        controllerModel:
-                            controller.inputControllers.value[index],
-                        relationSelectionAction: () =>
-                            controller.selectRelationAction(index),
-                        phoneSelectionAction: () =>
-                            controller.selectPhoneNumberAction(index),
+                        controllerModel: controller.inputControllers.value[index],
+                        relationSelectionAction: () => controller.selectRelationAction(index),
+                        phoneSelectionAction: () => controller.selectPhoneNumberAction(index),
                       );
                     },
                   ),

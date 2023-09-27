@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:rupee_day/models/order_list_item_model.dart';
 import 'package:rupee_day/views/order_tab/order_type.dart';
@@ -22,7 +21,6 @@ class OrderListContentController extends GetxController {
   void onReady() async {
     super.onReady();
     await checkLoginState();
-    fetchOrderList();
   }
 
   Future checkLoginState() async {
@@ -39,12 +37,9 @@ class OrderListContentController extends GetxController {
   }
 
   void addFeedbackAction(OrderListItemModel order) {
-    debugPrint('DEBUG: 当前添加Feedback的 order = ${order.loanOrderNo}');
     Get.toNamed(AppRoutes.FeedbackGenerate, arguments: {
       'types': orderListModel.feedBackTypes,
       'order': order,
-    })?.then(
-      (value) => fetchOrderList(),
-    );
+    })?.then((value) => fetchOrderList());
   }
 }

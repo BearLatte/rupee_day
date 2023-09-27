@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rupee_day/common/common_image.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 
 enum ItemType { normal, calendar, more }
 

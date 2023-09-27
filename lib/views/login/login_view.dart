@@ -6,7 +6,7 @@ import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
 import 'package:rupee_day/router/app_routes.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/widget/hidden_keyboard_wraper.dart';
 
 class LoginView extends StatelessWidget {

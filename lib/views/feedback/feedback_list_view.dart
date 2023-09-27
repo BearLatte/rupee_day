@@ -4,7 +4,8 @@ import 'package:rupee_day/Controllers/feedback_list_view_controller.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_view.dart';
 import 'package:rupee_day/models/feedback_model.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/router/app_routes.dart';
+import 'package:rupee_day/util/hex_color.dart';
 
 class FeedbackListView extends StatelessWidget {
   FeedbackListView({super.key});
@@ -46,8 +47,9 @@ class FeedbackListView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) {
             FeedbackModel feedback = controller.feedbackList.value[index];
             return ListTile(
+              onTap: () => Get.toNamed(AppRoutes.FeedbackDetail, arguments: feedback),
               title: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 5),
+                padding: const EdgeInsets.only(left: 5, right: 5, bottom: 10),
                 decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -61,24 +63,26 @@ class FeedbackListView extends StatelessWidget {
                       ),
                     ),
                     Divider(height: 1, color: HexColor('#E9E9E9')),
-                    Row(
-                      children: [
-                        Text(
-                          feedback.productName,
-                          style: TextStyle(color: HexColor('#333333'), fontSize: 20, fontWeight: FontWeight.w600),
-                        ),
-                        const Spacer(),
-                        if (feedback.feedBackState == 1)
-                          Container(
-                            decoration:
-                                BoxDecoration(color: HexColor('#E09754'), borderRadius: BorderRadius.circular(10)),
-                            child: const Text('1', style: TextStyle(color: Colors.white, fontSize: 14)),
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+                      child: Row(
+                        children: [
+                          Text(
+                            feedback.productName,
+                            style: TextStyle(color: HexColor('#333333'), fontSize: 20, fontWeight: FontWeight.w600),
                           ),
-                        Text(feedback.feedBackTime, style: TextStyle(color: HexColor('#D0D0D0'), fontSize: 14))
-                      ],
+                          const Spacer(),
+                          if (feedback.feedBackState == 1)
+                            Container(
+                              decoration: BoxDecoration(color: HexColor('#E09754'), borderRadius: BorderRadius.circular(10)),
+                              child: const Text('1', style: TextStyle(color: Colors.white, fontSize: 14)),
+                            ),
+                          Text(feedback.feedBackTime, style: TextStyle(color: HexColor('#D0D0D0'), fontSize: 14))
+                        ],
+                      ),
                     ),
                     Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 5),
                       child: Text('Order Number : ${feedback.loanOrderNo}'),
                     )
                   ],

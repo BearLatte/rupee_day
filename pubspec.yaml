@@ -60,6 +60,7 @@ dependencies:
   flutter_holo_date_picker: ^1.1.2+1
   flutter_native_contact_picker: ^0.0.4
   flutter_advanced_networkimage_2: ^2.0.1
+  focus_detector: ^2.0.1
 
 dev_dependencies:
   flutter_test:

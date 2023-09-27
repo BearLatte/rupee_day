@@ -13,9 +13,9 @@ FeedbackModel _$FeedbackModelFromJson(Map<String, dynamic> json) =>
       json['plkrowsductName'] as String,
       json['flkeewsdBackType'] as String,
       json['flkeewsdBackContent'] as String,
-      json['flkeewsdBackImg'] as String,
-      json['rlkepwslyContent'] as String,
-      json['rlkepwslyTime'] as String,
+      json['flkeewsdBackImg'] as String?,
+      json['rlkepwslyContent'] as String?,
+      json['rlkepwslyTime'] as String?,
       json['flkeewsdBackState'] as int,
       json['flkeewsdBackTime'] as String,
     );

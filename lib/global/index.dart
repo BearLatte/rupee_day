@@ -37,7 +37,13 @@ class Global {
     Get.offAllNamed(AppRoutes.Home);
   }
 
-  static logoutAction() {}
+  static logoutAction() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(LOGIN_KEY, false);
+    await prefs.setString(TOKEN_KEY, '');
+    await prefs.setString(PHONE_NUMBER_KEY, '');
+    Get.offAllNamed(AppRoutes.Home);
+  }
 
   static Future requestIdfa() async {
     PermissionStatus status = await Permission.appTrackingTransparency.request();

@@ -5,7 +5,7 @@ import 'package:get/route_manager.dart';
 import 'package:rupee_day/global/index.dart';
 import 'package:rupee_day/network/index.dart';
 import 'package:rupee_day/router/index.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Application extends StatelessWidget {

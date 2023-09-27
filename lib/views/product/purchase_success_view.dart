@@ -4,7 +4,7 @@ import 'package:rupee_day/Controllers/purchase_successed_controller.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_view.dart';
 import 'package:rupee_day/models/product_model.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/views/Product/product_list_item_view.dart';
 
 class PurchaseSuccessView extends StatelessWidget {
@@ -13,8 +13,7 @@ class PurchaseSuccessView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<ProductModel> products = Get.arguments;
-    PurchaseSuccessedController controller =
-        Get.find<PurchaseSuccessedController>();
+    PurchaseSuccessedController controller = Get.find<PurchaseSuccessedController>();
     return CommonView(
       backColor: HexColor('#333333'),
       child: SafeArea(
@@ -35,8 +34,7 @@ class PurchaseSuccessView extends StatelessWidget {
                 ),
               ),
               Container(
-                margin:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
                   color: HexColor('#E7AF74'),

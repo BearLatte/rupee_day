@@ -4,7 +4,7 @@ import 'package:rupee_day/Controllers/auth_first_controller.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/widget/form_item_widget.dart';
 import 'package:rupee_day/widget/hidden_keyboard_wraper.dart';
 
@@ -90,26 +90,22 @@ class StepFirstView extends StatelessWidget {
           ),
           CommonTextButton(
             'male',
-            titleColor:
-                gender == Gender.male ? Colors.white : HexColor('#999999'),
+            titleColor: gender == Gender.male ? Colors.white : HexColor('#999999'),
             titleSize: 16.0,
             width: 128,
             height: 44,
             borderRadius: 22,
-            backgroundColor:
-                gender == Gender.male ? HexColor('#E09754') : Colors.white,
+            backgroundColor: gender == Gender.male ? HexColor('#E09754') : Colors.white,
             onTap: () => valueChanged(Gender.male),
           ),
           CommonTextButton(
             'female',
-            titleColor:
-                gender == Gender.female ? Colors.white : HexColor('#999999'),
+            titleColor: gender == Gender.female ? Colors.white : HexColor('#999999'),
             titleSize: 16.0,
             width: 128,
             height: 44,
             borderRadius: 22,
-            backgroundColor:
-                gender == Gender.female ? HexColor('#E09754') : Colors.white,
+            backgroundColor: gender == Gender.female ? HexColor('#E09754') : Colors.white,
             onTap: () => valueChanged(Gender.female),
           )
         ],
@@ -138,8 +134,7 @@ class StepFirstView extends StatelessWidget {
                   const Padding(padding: EdgeInsets.only(left: 10.0)),
                   Text(
                     'Please upload clear and original documents.',
-                    style:
-                        TextStyle(color: HexColor('#F6DDB2'), fontSize: 14.0),
+                    style: TextStyle(color: HexColor('#F6DDB2'), fontSize: 14.0),
                   )
                 ],
               ),

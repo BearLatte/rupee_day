@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:rupee_day/Network/index.dart';
 import 'package:rupee_day/global/index.dart';
 
 class MeController extends GetxController {
@@ -13,5 +14,11 @@ class MeController extends GetxController {
   Future checkLoginState() async {
     isLogin.value = await Global.isLogin ?? false;
     phoneNumber.value = await Global.currentLoginPhone ?? 'Please log in';
+  }
+
+  void logout() async {
+    await NetworkApi.logout();
+    isLogin.value = false;
+    Global.logoutAction();
   }
 }

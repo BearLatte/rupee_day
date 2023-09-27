@@ -1,10 +1,10 @@
 // ignore_for_file: constant_identifier_names, non_constant_identifier_names, depend_on_referenced_packages
 import 'package:dio/dio.dart';
+import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:rupee_day/util/dio_util/dio_cache_interceptors.dart';
 import 'package:rupee_day/util/dio_util/dio_interceptors.dart';
 import 'package:rupee_day/util/dio_util/dio_method.dart';
 import 'package:rupee_day/util/dio_util/dio_transformer.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class DioUtil {
   /// 连接超时时间
@@ -14,7 +14,7 @@ class DioUtil {
   static const Duration RECEIVE_TIMEOUT = Duration(milliseconds: 60 * 1000);
 
   /// 统一 url 前缀
-  static const String BASE_URL = 'http://8.215.46.156:1360/';
+  static const String BASE_URL = 'http://149.129.217.31:1360/';
 
   /// 是否开启网络缓存，默认 false
   static bool CACHE_ENABLE = false;
@@ -69,13 +69,7 @@ class DioUtil {
 
   // 统一请求方法
   Future request(String path,
-      {DioMethod method = DioMethod.get,
-      Map<String, dynamic>? params,
-      data,
-      CancelToken? cancelToken,
-      Options? options,
-      ProgressCallback? onSendProgress,
-      ProgressCallback? onReceiveProgress}) async {
+      {DioMethod method = DioMethod.get, Map<String, dynamic>? params, data, CancelToken? cancelToken, Options? options, ProgressCallback? onSendProgress, ProgressCallback? onReceiveProgress}) async {
     const methodValues = {
       DioMethod.get: 'get',
       DioMethod.post: 'post',

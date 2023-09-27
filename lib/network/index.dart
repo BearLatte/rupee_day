@@ -35,10 +35,15 @@ class NetworkApi {
     });
   }
 
-  /// 登录
+  // 登录
   static Future<LoginResultModel> login(String phone, String code) async {
     var json = await _request('/EZDyP/EhULCC', params: {'uXXXseXXrPhone': phone, 'lXXXogXXinCode': code});
     return LoginResultModel.fromJson(json);
+  }
+
+  // 登出
+  static Future logout() async {
+    await _request('/EZDyP/YWDwpx');
   }
 
   // 登录前首页
@@ -236,12 +241,31 @@ class NetworkApi {
   }
 
   static Future<String> uploadFeedbackImage(String filePath) async {
-    EasyLoading.show(status: 'uploading...');
+    EasyLoading.show(status: 'uploading...', maskType: EasyLoadingMaskType.black);
     var json = await _request('/EZDyP/lnTwMn/omxwY');
     ImageUploadParams params = ImageUploadParams.fromJson(json);
     String objectKey = await awsImageUpload(params, filePath);
     EasyLoading.dismiss();
     return objectKey;
+  }
+
+  static saveFeedback({
+    required String orderNumber,
+    required String feedBackType,
+    required String feedBackContent,
+    String? feedBackImg,
+    Function()? successCallback,
+  }) async {
+    Map<String, dynamic> params = {
+      'lXXXoaXXnOrderNo': orderNumber,
+      'fXXXeeXXdBackType': feedBackType,
+      'fXXXeeXXdBackContent': feedBackContent,
+    };
+    if (feedBackImg != null) {
+      params['fXXXeeXXdBackImg'] = feedBackImg;
+    }
+    await _request('/EZDyP/lnTwMn/UbCON', params: params);
+    if (successCallback != null) successCallback!();
   }
 
   // 压缩图片到200kb

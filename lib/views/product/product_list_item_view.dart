@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/models/product_model.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/util/random_util.dart';
 
 class ProductListItemView extends StatelessWidget {
@@ -19,8 +19,7 @@ class ProductListItemView extends StatelessWidget {
     return ListTile(
       title: Container(
         padding: const EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 20.0),
-        decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(20.0)),
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20.0)),
         child: Column(
           children: [
             Row(
@@ -48,8 +47,7 @@ class ProductListItemView extends StatelessWidget {
                       const Padding(padding: EdgeInsets.only(right: 5.0)),
                       Text(
                         RandomUtil.randomScore(),
-                        style: TextStyle(
-                            fontSize: 14.0, color: HexColor('#E09754')),
+                        style: TextStyle(fontSize: 14.0, color: HexColor('#E09754')),
                       )
                     ],
                   ),

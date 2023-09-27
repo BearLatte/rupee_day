@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rupee_day/Controllers/auth_third_controller.dart';
 import 'package:rupee_day/common/common_image.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 
 class ContactItemWidget extends StatelessWidget {
   final bool isPhoneEnable;
@@ -54,8 +54,7 @@ class ContactItemWidget extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: relationSelectionAction,
-                  child: const CommonImage(
-                      src: 'asset/icons/arrow_right_icon.png'),
+                  child: const CommonImage(src: 'asset/icons/arrow_right_icon.png'),
                 )
               ],
             ),
@@ -72,8 +71,7 @@ class ContactItemWidget extends StatelessWidget {
                 const Padding(padding: EdgeInsets.only(left: 14.0)),
                 Expanded(
                   child: TextField(
-                    style:
-                        TextStyle(color: HexColor('#333333'), fontSize: 14.0),
+                    style: TextStyle(color: HexColor('#333333'), fontSize: 14.0),
                     controller: controllerModel.contactNameController,
                     readOnly: !isPhoneEnable,
                     onTap: phoneSelectionAction,

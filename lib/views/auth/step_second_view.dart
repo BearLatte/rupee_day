@@ -4,7 +4,7 @@ import 'package:rupee_day/Controllers/auth_first_controller.dart';
 import 'package:rupee_day/Controllers/auth_second_controller.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/widget/form_item_widget.dart';
 import 'package:rupee_day/widget/hidden_keyboard_wraper.dart';
 
@@ -25,8 +25,7 @@ class StepSecondView extends StatelessWidget {
         isDarkStatusBar: false,
         child: SafeArea(
           child: SingleChildScrollView(
-            physics: const AlwaysScrollableScrollPhysics(
-                parent: BouncingScrollPhysics()),
+            physics: const AlwaysScrollableScrollPhysics(parent: BouncingScrollPhysics()),
             child: Column(
               children: [
                 FormItemWidget(
@@ -81,8 +80,7 @@ class StepSecondView extends StatelessWidget {
                   () => FormItemWidget(
                     itemName: 'Target amount',
                     inputController: controller.targetAmountController,
-                    placeholder:
-                        '${controller.minAmount} to ${controller.maxAmount}',
+                    placeholder: '${controller.minAmount} to ${controller.maxAmount}',
                     keyboardType: TextInputType.number,
                   ),
                 ),
@@ -94,8 +92,7 @@ class StepSecondView extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  padding:
-                      const EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0),
+                  padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 20.0),
                   child: Text(
                     'Bank info',
                     style: TextStyle(
@@ -109,8 +106,7 @@ class StepSecondView extends StatelessWidget {
                   itemName: 'Bank Card Number',
                   inputController: controller.bankNumberController,
                   placeholder: 'Please enter',
-                  onTap: () =>
-                      controller.formItemOnTap(FormItemType.bankNumber),
+                  onTap: () => controller.formItemOnTap(FormItemType.bankNumber),
                   keyboardType: TextInputType.number,
                 ),
                 FormItemWidget(

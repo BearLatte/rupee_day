@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 
 class CommonView extends StatelessWidget {
   final String? title;
@@ -14,23 +14,25 @@ class CommonView extends StatelessWidget {
   final bool isShowStep;
   final String totalStep;
   final String currentStep;
+  final List<Widget>? actions;
   final PreferredSizeWidget? appBarBottom;
   final Function()? backAction;
-  const CommonView({
-    super.key,
-    this.title,
-    this.titleColor = Colors.white,
-    this.backColor = Colors.white,
-    this.isShowBackBtn = true,
-    this.appBarColor = Colors.transparent,
-    required this.child,
-    this.isDarkStatusBar = true,
-    this.isShowStep = false,
-    this.totalStep = '4',
-    this.currentStep = '1',
-    this.appBarBottom,
-    this.backAction,
-  });
+
+  const CommonView(
+      {super.key,
+      this.title,
+      this.titleColor = Colors.white,
+      this.backColor = Colors.white,
+      this.isShowBackBtn = true,
+      this.appBarColor = Colors.transparent,
+      required this.child,
+      this.isDarkStatusBar = true,
+      this.isShowStep = false,
+      this.totalStep = '4',
+      this.currentStep = '1',
+      this.appBarBottom,
+      this.backAction,
+      this.actions});
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +77,7 @@ class CommonView extends StatelessWidget {
                   ),
                 )
               ]
-            : [],
+            : (actions ?? []),
         title: Text(
           title ?? '',
           style: TextStyle(

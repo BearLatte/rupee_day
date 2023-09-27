@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rupee_day/common/common_image.dart';
+import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 
 import '../../Controllers/me_controller.dart';
 import '../../router/app_routes.dart';
@@ -13,18 +14,26 @@ class MeTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<MeController>();
-    return CommonView(
-      isShowBackBtn: false,
-      isDarkStatusBar: false,
-      title: 'Me',
-      child: Stack(
-        children: [
-          CommonImage(src: 'asset/images/order_detail_bg_img.png', width: double.infinity, height: MediaQuery.of(context).size.height * 0.4, fit: BoxFit.fill),
-          SafeArea(
-            child: SingleChildScrollView(
-              child: Center(
-                child: Obx(
-                  () => Column(
+    return Obx(
+      () => CommonView(
+        isShowBackBtn: false,
+        isDarkStatusBar: false,
+        title: 'Me',
+        actions: [
+          if (controller.isLogin.value)
+            SizedBox(
+              width: 44,
+              height: 44,
+              child: IconButton(onPressed: controller.logout, icon: const CommonImage(src: 'asset/icons/logout_icon.png')),
+            ),
+        ],
+        child: Stack(
+          children: [
+            CommonImage(src: 'asset/images/order_detail_bg_img.png', width: double.infinity, height: MediaQuery.of(context).size.height * 0.4, fit: BoxFit.fill),
+            SafeArea(
+              child: SingleChildScrollView(
+                child: Center(
+                  child: Column(
                     children: [
                       CommonImage(
                         src: controller.isLogin.value ? 'asset/icons/logo_icon.png' : 'asset/icons/not_login_logo_icon.png',
@@ -49,7 +58,7 @@ class MeTab extends StatelessWidget {
                             wrapItem(
                               icon: 'asset/icons/profile_card_icon.png',
                               title: 'Change Bank Info',
-                              onPressed: () => Get.toNamed(AppRoutes.ChangeBankCard),
+                              onPressed: () => controller.isLogin.value ? Get.toNamed(AppRoutes.ChangeBankCard) : Get.toNamed(AppRoutes.LoginSplash),
                             ),
                             wrapItem(
                               icon: 'asset/icons/profile_privacy_icon.png',
@@ -71,13 +80,25 @@ class MeTab extends StatelessWidget {
                         width: MediaQuery.of(context).size.width - 20,
                         fit: BoxFit.fill,
                       ),
+                      if (controller.isLogin.value)
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 85, vertical: 20),
+                          child: CommonTextButton(
+                            'Logout',
+                            width: 200,
+                            height: 50,
+                            borderRadius: 22,
+                            onTap: controller.logout,
+                            backgroundColor: HexColor('#15173B'),
+                          ),
+                        ),
                     ],
                   ),
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }

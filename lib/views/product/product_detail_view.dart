@@ -5,7 +5,7 @@ import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
 import 'package:rupee_day/models/product_detail_model.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 
 class ProductDetailView extends StatelessWidget {
   const ProductDetailView({super.key});
@@ -47,8 +47,7 @@ class ProductDetailView extends StatelessWidget {
                                   height: 40,
                                 ),
                               ),
-                              const Padding(
-                                  padding: EdgeInsets.only(left: 10.0)),
+                              const Padding(padding: EdgeInsets.only(left: 10.0)),
                               Text(
                                 product.productName,
                                 style: TextStyle(
@@ -61,19 +60,14 @@ class ProductDetailView extends StatelessWidget {
                           ),
                           const Padding(padding: EdgeInsets.only(bottom: 10.0)),
                           _formRow('Amount', '₹ ${product.loanAmount}'),
-                          _formRow(
-                              'Received Amount', '₹ ${product.loanPayAmount}'),
+                          _formRow('Received Amount', '₹ ${product.loanPayAmount}'),
                           _formRow('Terms', '₹ ${product.loanInterest}'),
-                          _formRow(
-                              'Verification Fee', '₹ ${product.loanFeeVerify}'),
+                          _formRow('Verification Fee', '₹ ${product.loanFeeVerify}'),
                           _formRow('GST', '₹ ${product.loanFeeGst}'),
-                          _formRow(
-                              'Overdue Charge', '₹ ${product.loanOverdue}'),
+                          _formRow('Overdue Charge', '₹ ${product.loanOverdue}'),
                           _formRow('Interest', '₹ ${product.loanInterest}'),
-                          _formRow(
-                              'Repayment Amount', '₹ ${product.loanAmount}'),
-                          if (controller.isAppleTestAccount.value)
-                            _formRow('APR', '18.25%'),
+                          _formRow('Repayment Amount', '₹ ${product.loanAmount}'),
+                          if (controller.isAppleTestAccount.value) _formRow('APR', '18.25%'),
                           Container(
                             padding: const EdgeInsets.only(top: 20, bottom: 10),
                             child: CommonTextButton(

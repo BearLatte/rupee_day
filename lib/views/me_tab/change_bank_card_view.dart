@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:rupee_day/Controllers/change_bank_card_controller.dart';
 import 'package:rupee_day/common/common_view.dart';
-import 'package:rupee_day/util/hex_corlor.dart';
+import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/widget/hidden_keyboard_wraper.dart';
 
 import '../../common/common_image.dart';

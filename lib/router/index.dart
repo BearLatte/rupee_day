@@ -19,6 +19,8 @@ import 'package:rupee_day/views/auth/photo_tips_view.dart';
 import 'package:rupee_day/views/auth/step_first_view.dart';
 import 'package:rupee_day/views/auth/step_second_view.dart';
 import 'package:rupee_day/views/auth/step_thrid_view.dart';
+import 'package:rupee_day/views/feedback/feedback_detail_view.dart';
+import 'package:rupee_day/views/feedback/feedback_generate_success_view.dart';
 import 'package:rupee_day/views/feedback/feedback_generate_view.dart';
 import 'package:rupee_day/views/feedback/feedback_list_view.dart';
 import 'package:rupee_day/views/home_view.dart';
@@ -111,6 +113,8 @@ class AppPages {
       transition: Transition.cupertino,
     ),
     GetPage(name: AppRoutes.AboutUs, page: () => const AboutUsView(), transition: Transition.cupertino),
+    GetPage(name: AppRoutes.FeedbackGenerateSuccess, page: () => const FeedbackGenerateSuccessView(), transition: Transition.cupertino),
+    GetPage(name: AppRoutes.FeedbackDetail, page: () => const FeedbackDetailView(), transition: Transition.cupertino),
     GetPage(
       name: AppRoutes.FeedbackGenerate,
       page: () => const FeedbackGenerateView(),
