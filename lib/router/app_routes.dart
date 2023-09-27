@@ -17,6 +17,7 @@ abstract class AppRoutes {
   // Order
   static const OrderTab = '/orderTab';
   static const OrderDetail = '/orderDetail';
+  static const ExtendRepay = '/extendRepay';
 
   // Feedback
   static const FeedbackList = '/feedbackListView';

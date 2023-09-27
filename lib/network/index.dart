@@ -12,6 +12,7 @@ import 'package:rupee_day/models/image_upload_params.dart';
 import 'package:rupee_day/models/liveness_params_model.dart';
 import 'package:rupee_day/models/login_result_model.dart';
 import 'package:rupee_day/models/optical_character_model.dart';
+import 'package:rupee_day/models/order_detail_result_model.dart';
 import 'package:rupee_day/models/order_result_list_model.dart';
 import 'package:rupee_day/models/product_detail_model.dart';
 import 'package:rupee_day/models/product_list_model.dart';
@@ -266,6 +267,22 @@ class NetworkApi {
     }
     await _request('/EZDyP/lnTwMn/UbCON', params: params);
     if (successCallback != null) successCallback!();
+  }
+
+  // 订单详情
+  static Future<OrderDetailResultModel> fetchOrderDetail(String orderNumber) async {
+    var json = await _request('/EZDyP/lnTwMn/Subxj', params: {'lXXXoaXXnOrderNo': orderNumber});
+    return OrderDetailResultModel.fromJson(json);
+  }
+
+  // 获取还款路径
+  static Future<Map<String, dynamic>> fetchRepayPath({required String orderNumber, String repayType = 'all', required String loanRepayDate}) async {
+    Map<String, dynamic> result = await _request('/EZDyP/lnTwMn/sYByG', params: {
+      'lXXXoaXXnOrderNo': orderNumber,
+      'rXXXepXXayType': repayType,
+      'lXXXoaXXnRepayDate': loanRepayDate,
+    });
+    return result;
   }
 
   // 压缩图片到200kb

@@ -50,16 +50,12 @@ class LoanTabController extends GetxController with RouteAware {
         Get.toNamed(AppRoutes.AuthFirst)?.then((value) => getProducts());
       } else {
         ProductModel product = products[index];
-        SpaceResultModel model =
-            await NetworkApi.checkSpaceDetail('${product.productId}');
+        SpaceResultModel model = await NetworkApi.checkSpaceDetail('${product.productId}');
         if (model.spaceStatus == 2) {
-          Get.toNamed(
-            AppRoutes.ProductDetail,
-            arguments: {'isRecommond': false, 'product': model.loanProduct},
-          );
+          Get.toNamed(AppRoutes.ProductDetail, arguments: {'isRecommond': false, 'product': model.loanProduct});
         }
         if (model.spaceStatus == 3) {
-          Get.toNamed(AppRoutes.OrderDetail, arguments: '${product.productId}');
+          Get.toNamed(AppRoutes.OrderDetail, arguments: model.orderInfo!.loanOrderNo);
         }
       }
     } else {
