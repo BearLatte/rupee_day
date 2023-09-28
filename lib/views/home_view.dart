@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:rupee_day/common/common_image.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
 import 'package:rupee_day/util/colors_util.dart';
 import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/views/loan_tab/index.dart';
@@ -114,6 +115,9 @@ class HomeView extends StatelessWidget {
           // if (index == 1 && !(await Global.isLogin)) {
           //   return Get.toNamed(AppRoutes.Login);
           // }
+          if (index == 1) {
+            ADJustTrackTool.trackWith('g7ku0x');
+          }
           debugPrint('DEBUG: 当前点击的索引是$index');
         },
       ),

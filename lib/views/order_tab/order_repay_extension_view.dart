@@ -13,7 +13,8 @@ class OrderRepayExtensionView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.find<RepayExtensionController>();
-    controller.orderNumber = Get.arguments;
+    controller.orderNumber = Get.arguments['orderNumber'];
+    controller.orderType = Get.arguments['orderType'];
     return FocusDetector(
       onForegroundGained: () => Get.back(),
       child: CommonView(

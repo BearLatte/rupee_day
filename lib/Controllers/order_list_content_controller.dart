@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:get/get.dart';
 import 'package:rupee_day/models/order_list_item_model.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
 import 'package:rupee_day/views/order_tab/order_type.dart';
 import 'package:swipe_refresh/swipe_refresh.dart';
 
@@ -41,5 +42,10 @@ class OrderListContentController extends GetxController {
       'types': orderListModel.feedBackTypes,
       'order': order,
     })?.then((value) => fetchOrderList());
+  }
+
+  void orderListItemOnTap(OrderListItemModel order) {
+    ADJustTrackTool.trackWith('mxgcka');
+    Get.toNamed(AppRoutes.OrderDetail, arguments: order.loanOrderNo);
   }
 }

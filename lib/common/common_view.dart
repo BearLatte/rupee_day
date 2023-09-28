@@ -50,10 +50,7 @@ class CommonView extends StatelessWidget {
                 height: 44.0,
                 child: IconButton(
                   color: backColor,
-                  icon: const Icon(
-                    Icons.keyboard_arrow_left,
-                    size: 44.0,
-                  ),
+                  icon: const Icon(Icons.keyboard_arrow_left, size: 44.0),
                   onPressed: () => backAction == null ? Get.back() : backAction!(),
                 ),
               )
@@ -64,14 +61,8 @@ class CommonView extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      Text(
-                        currentStep,
-                        style: TextStyle(color: HexColor('#E09754'), fontSize: 20.0),
-                      ),
-                      Text(
-                        '/$totalStep',
-                        style: TextStyle(color: HexColor('#F2F2F2'), fontSize: 12.0),
-                      ),
+                      Text(currentStep, style: TextStyle(color: HexColor('#E09754'), fontSize: 20.0)),
+                      Text('/$totalStep', style: TextStyle(color: HexColor('#F2F2F2'), fontSize: 12.0)),
                       const Padding(padding: EdgeInsets.only(right: 10.0))
                     ],
                   ),

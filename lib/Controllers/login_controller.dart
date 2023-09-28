@@ -8,6 +8,8 @@ import 'package:rupee_day/global/index.dart';
 import 'package:rupee_day/models/login_result_model.dart';
 import 'package:rupee_day/network/index.dart';
 import 'package:rupee_day/router/app_routes.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
+import 'package:rupee_day/util/facebook_track_tool.dart';
 
 class LoginController extends GetxController {
   /// 倒计时按钮的标题
@@ -41,6 +43,7 @@ class LoginController extends GetxController {
 
   // 发送验证码按钮点击
   void getOtpOnPressed() {
+    ADJustTrackTool.trackWith('7ke7mr');
     if (phoneController.text.trim().isEmpty) {
       CommonSnackbar.showSnackbar('Please enter a 10-digit mobile number', type: SnackType.error);
       return;
@@ -69,6 +72,7 @@ class LoginController extends GetxController {
   }
 
   void onLogin() async {
+    ADJustTrackTool.trackWith('76kyq6');
     if (phoneController.text.trim().isEmpty) {
       CommonSnackbar.showSnackbar(
         'Please enter a 10-digit mobile number',
@@ -94,6 +98,10 @@ class LoginController extends GetxController {
     }
 
     LoginResultModel model = await NetworkApi.login(phoneController.text, otpController.text);
+    if (model.isRegistered == 1) {
+      ADJustTrackTool.trackWith('jtoiz1');
+      FacebookTrankTool.trackWith(FacebookTrackType.registration);
+    }
     Global.loginSuccessAction(model.loginToken, phoneController.text);
   }
 }

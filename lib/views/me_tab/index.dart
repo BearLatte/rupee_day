@@ -55,11 +55,7 @@ class MeTab extends StatelessWidget {
                               title: 'Feedback',
                               onPressed: () => Get.toNamed(AppRoutes.FeedbackList),
                             ),
-                            wrapItem(
-                              icon: 'asset/icons/profile_card_icon.png',
-                              title: 'Change Bank Info',
-                              onPressed: () => controller.isLogin.value ? Get.toNamed(AppRoutes.ChangeBankCard) : Get.toNamed(AppRoutes.LoginSplash),
-                            ),
+                            wrapItem(icon: 'asset/icons/profile_card_icon.png', title: 'Change Bank Info', onPressed: controller.changeBankOnTap),
                             wrapItem(
                               icon: 'asset/icons/profile_privacy_icon.png',
                               title: 'Privacy Policy',
@@ -67,11 +63,7 @@ class MeTab extends StatelessWidget {
                                 debugPrint('DEBUG: 打开 webView 查看隐私协议');
                               },
                             ),
-                            wrapItem(
-                              icon: 'asset/icons/profile_about_icon.png',
-                              title: 'About Us',
-                              onPressed: () => Get.toNamed(AppRoutes.AboutUs),
-                            )
+                            wrapItem(icon: 'asset/icons/profile_about_icon.png', title: 'About Us', onPressed: controller.aboutUsOnTap)
                           ],
                         ),
                       ),

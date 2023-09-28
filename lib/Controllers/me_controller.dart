@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
 import 'package:rupee_day/Network/index.dart';
 import 'package:rupee_day/global/index.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
+
+import '../router/app_routes.dart';
 
 class MeController extends GetxController {
   var isLogin = false.obs;
@@ -21,4 +24,15 @@ class MeController extends GetxController {
     isLogin.value = false;
     Global.logoutAction();
   }
+
+  void changeBankOnTap() {
+    ADJustTrackTool.trackWith('nu6lzz');
+    if (isLogin.value) {
+      Get.toNamed(AppRoutes.ChangeBankCard);
+    } else {
+      Get.toNamed(AppRoutes.LoginSplash);
+    }
+  }
+
+  void aboutUsOnTap() => Get.toNamed(AppRoutes.AboutUs);
 }

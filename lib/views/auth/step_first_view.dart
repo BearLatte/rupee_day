@@ -4,6 +4,7 @@ import 'package:rupee_day/Controllers/auth_first_controller.dart';
 import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
 import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/widget/form_item_widget.dart';
 import 'package:rupee_day/widget/hidden_keyboard_wraper.dart';
@@ -73,10 +74,7 @@ class StepFirstView extends StatelessWidget {
     );
   }
 
-  Widget genderItem({
-    Gender gender = Gender.none,
-    required Function(Gender gender) valueChanged,
-  }) {
+  Widget genderItem({Gender gender = Gender.none, required Function(Gender gender) valueChanged}) {
     return Container(
       height: 44.0,
       margin: const EdgeInsets.only(top: 10.0, left: 10.0, right: 10.0),
@@ -165,7 +163,10 @@ class StepFirstView extends StatelessWidget {
             ),
             Obx(() => genderItem(
                   gender: controller.gender.value,
-                  valueChanged: (gender) => controller.gender.value = gender,
+                  valueChanged: (gender) {
+                    ADJustTrackTool.trackWith('ov1ev5');
+                    controller.gender.value = gender;
+                  },
                 )),
             FormItemWidget(
               itemName: 'Date of Birth',

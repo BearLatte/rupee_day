@@ -1,4 +1,10 @@
 PODS:
+  - Adjust (4.35.0):
+    - Adjust/Core (= 4.35.0)
+  - Adjust/Core (4.35.0)
+  - adjust_sdk (4.35.0):
+    - Adjust (= 4.35.0)
+    - Flutter
   - advertising_id (0.0.1):
     - Flutter
   - battery_plus (1.0.0):
@@ -13,6 +19,17 @@ PODS:
     - Flutter
   - devicelocale (0.0.1):
     - Flutter
+  - facebook_app_events (0.0.1):
+    - FBAudienceNetwork (~> 6.12)
+    - FBSDKCoreKit (~> 16.0)
+    - Flutter
+  - FBAEMKit (16.1.3):
+    - FBSDKCoreKit_Basics (= 16.1.3)
+  - FBAudienceNetwork (6.14.0)
+  - FBSDKCoreKit (16.1.3):
+    - FBAEMKit (= 16.1.3)
+    - FBSDKCoreKit_Basics (= 16.1.3)
+  - FBSDKCoreKit_Basics (16.1.3)
   - Flutter (1.0.0)
   - flutter_contacts (0.0.1):
     - Flutter
@@ -67,12 +84,14 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - adjust_sdk (from `.symlinks/plugins/adjust_sdk/ios`)
   - advertising_id (from `.symlinks/plugins/advertising_id/ios`)
   - battery_plus (from `.symlinks/plugins/battery_plus/ios`)
   - connection_network_type (from `.symlinks/plugins/connection_network_type/ios`)
   - connectivity_plus (from `.symlinks/plugins/connectivity_plus/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - devicelocale (from `.symlinks/plugins/devicelocale/ios`)
+  - facebook_app_events (from `.symlinks/plugins/facebook_app_events/ios`)
   - Flutter (from `Flutter`)
   - flutter_contacts (from `.symlinks/plugins/flutter_contacts/ios`)
   - flutter_image_compress_common (from `.symlinks/plugins/flutter_image_compress_common/ios`)
@@ -89,6 +108,11 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Adjust
+    - FBAEMKit
+    - FBAudienceNetwork
+    - FBSDKCoreKit
+    - FBSDKCoreKit_Basics
     - libwebp
     - Mantle
     - ReachabilitySwift
@@ -96,6 +120,8 @@ SPEC REPOS:
     - SDWebImageWebPCoder
 
 EXTERNAL SOURCES:
+  adjust_sdk:
+    :path: ".symlinks/plugins/adjust_sdk/ios"
   advertising_id:
     :path: ".symlinks/plugins/advertising_id/ios"
   battery_plus:
@@ -108,6 +134,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/device_info_plus/ios"
   devicelocale:
     :path: ".symlinks/plugins/devicelocale/ios"
+  facebook_app_events:
+    :path: ".symlinks/plugins/facebook_app_events/ios"
   Flutter:
     :path: Flutter
   flutter_contacts:
@@ -136,12 +164,19 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
+  Adjust: 17a9c4f481065eb717aacdf4a0ab84a55c8fdf39
+  adjust_sdk: 6e1cba5d1c0a1bc9d73c7af463224ae94f6de402
   advertising_id: 31c738918c2e04d86d80c293357e61e06e87df74
   battery_plus: 9bff772a7e5e4d5381ca3ca92a97373a3d8b2738
   connection_network_type: 160e62717f4cfc913811aa4e4ccf7f4e60497936
   connectivity_plus: 07c49e96d7fc92bc9920617b83238c4d178b446a
   device_info_plus: 7545d84d8d1b896cb16a4ff98c19f07ec4b298ea
   devicelocale: b22617f40038496deffba44747101255cee005b0
+  facebook_app_events: deb163f1f7fa13213192532bbc84ff0b0d798bc2
+  FBAEMKit: af2972f39bb0f3f7c45998f435b007833c32ffb2
+  FBAudienceNetwork: 4d6223a9a88a22e9dca8c9e6c1829a8745b86228
+  FBSDKCoreKit: 19e2e18b3be578d7a51fed8fdd8c152bef0b9511
+  FBSDKCoreKit_Basics: dd9826ce3c9fd9f8cdf8dbbd0ef0a53e6c0c9e7e
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   flutter_contacts: edb1c5ce76aa433e20e6cb14c615f4c0b66e0983
   flutter_image_compress_common: ec1d45c362c9d30a3f6a0426c297f47c52007e3e
@@ -161,6 +196,6 @@ SPEC CHECKSUMS:
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
 
-PODFILE CHECKSUM: 896bd80888b955672a332f74e3620cfb6fe22301
+PODFILE CHECKSUM: 027e2df379983e5dfd78874276363749e4f3bdb4
 
 COCOAPODS: 1.12.1

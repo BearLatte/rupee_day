@@ -7,6 +7,7 @@ import 'package:rupee_day/models/auth_info_model.dart';
 import 'package:rupee_day/models/auth_params_model.dart';
 import 'package:rupee_day/network/index.dart';
 import 'package:rupee_day/router/app_routes.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
 
 class AuthSecondController extends GetxController {
   var minAmount = ''.obs;
@@ -54,6 +55,7 @@ class AuthSecondController extends GetxController {
     debugPrint('DEBUG: $itemType');
     switch (itemType) {
       case FormItemType.marriage:
+        ADJustTrackTool.trackWith('snnrse');
         int? selectedIndex = await CommonPicker.showPicker(
           context: Get.context!,
           options: authInfo.marriageStatusList,
@@ -63,7 +65,9 @@ class AuthSecondController extends GetxController {
         if (selectedIndex != null) {
           marriageController.text = authInfo.marriageStatusList[selectedIndex];
         }
+        break;
       case FormItemType.education:
+        ADJustTrackTool.trackWith('q1cokl');
         int? selectedIndex = await CommonPicker.showPicker(
           context: Get.context!,
           options: authInfo.educationList,
@@ -73,6 +77,7 @@ class AuthSecondController extends GetxController {
           educationController.text = authInfo.educationList[selectedIndex];
         }
       case FormItemType.salary:
+        ADJustTrackTool.trackWith('8p5yxb');
         int? selectedIndex = await CommonPicker.showPicker(
           context: Get.context!,
           options: authInfo.monthlySalaryList,
@@ -82,6 +87,7 @@ class AuthSecondController extends GetxController {
           salaryController.text = authInfo.monthlySalaryList[selectedIndex];
         }
       case FormItemType.industry:
+        ADJustTrackTool.trackWith('vlgl8c');
         int? selectedIndex = await CommonPicker.showPicker(
           context: Get.context!,
           options: authInfo.industryList,
@@ -91,6 +97,7 @@ class AuthSecondController extends GetxController {
           industryController.text = authInfo.industryList[selectedIndex];
         }
       case FormItemType.workTitle:
+        ADJustTrackTool.trackWith('pzo772');
         int? selectedIndex = await CommonPicker.showPicker(
           context: Get.context!,
           options: authInfo.workTitleList,
@@ -99,12 +106,25 @@ class AuthSecondController extends GetxController {
         if (selectedIndex != null) {
           workTitleController.text = authInfo.workTitleList[selectedIndex];
         }
+      case FormItemType.email:
+        ADJustTrackTool.trackWith('cms0iq');
+        break;
+      case FormItemType.bankName:
+        ADJustTrackTool.trackWith('fbp72t');
+        break;
+      case FormItemType.bankNumber:
+        ADJustTrackTool.trackWith('sq1kb5');
+        break;
+      case FormItemType.bankIfsc:
+        ADJustTrackTool.trackWith('mf7cu7');
+        break;
       default:
         break;
     }
   }
 
   void onNext() async {
+    ADJustTrackTool.trackWith('gbnhhs');
     if (whatAppController.text.trim().isEmpty) {
       CommonSnackbar.showSnackbar(
         'WhatsApp Account can not be empty!',
@@ -227,9 +247,7 @@ class AuthSecondController extends GetxController {
       workTitle: workTitleController.text,
       userEmail: emailController.text,
       applyAmount: targetAmountController.text,
-      facebookId: facebookController.text.trim().isEmpty
-          ? null
-          : facebookController.text,
+      facebookId: facebookController.text.trim().isEmpty ? null : facebookController.text,
       bankCardNo: bankNumberController.text,
       bankCardName: bankNameController.text,
       bankIfscCode: ifscController.text,

@@ -3,7 +3,6 @@ import 'package:focus_detector/focus_detector.dart';
 import 'package:get/get.dart';
 import 'package:rupee_day/Controllers/order_list_content_controller.dart';
 import 'package:rupee_day/models/order_list_item_model.dart';
-import 'package:rupee_day/router/app_routes.dart';
 import 'package:swipe_refresh/swipe_refresh.dart';
 
 import '../../common/common_image.dart';
@@ -48,7 +47,7 @@ class OrderListContentView extends StatelessWidget {
                   (order) => orderItem(
                     order,
                     addFeedbackAction: controller.addFeedbackAction,
-                    onTap: () => Get.toNamed(AppRoutes.OrderDetail, arguments: order.loanOrderNo),
+                    onTap: () => controller.orderListItemOnTap(order),
                   ),
                 )
                 .toList(),

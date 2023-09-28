@@ -6,6 +6,7 @@ import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
 import 'package:rupee_day/router/app_routes.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
 import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/widget/hidden_keyboard_wraper.dart';
 
@@ -116,13 +117,10 @@ class LoginView extends StatelessWidget {
                 enableActiveFill: true,
                 appContext: context,
                 controller: controller.otpController,
-                textStyle: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w600,
-                  color: HexColor('#15173B'),
-                ),
+                textStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w600, color: HexColor('#15173B')),
                 cursorColor: HexColor('#DADADA'),
                 animationType: AnimationType.none,
+                onTap: () => ADJustTrackTool.trackWith('5xir6n'),
                 pinTheme: PinTheme(
                   fieldWidth: 50.0,
                   fieldHeight: 50.0,

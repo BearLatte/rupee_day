@@ -7,6 +7,7 @@ import 'package:rupee_day/models/product_model.dart';
 import 'package:rupee_day/models/space_result_model.dart';
 import 'package:rupee_day/models/user_info_model.dart';
 import 'package:rupee_day/router/app_routes.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
 
 class LoanTabController extends GetxController with RouteAware {
   UserInfoModel? userInfo;
@@ -47,8 +48,10 @@ class LoanTabController extends GetxController with RouteAware {
   void loanBtnOnPressed(int index) async {
     if (await Global.isLogin) {
       if (!isCertified) {
+        ADJustTrackTool.trackWith('jcrniq');
         Get.toNamed(AppRoutes.AuthFirst)?.then((value) => getProducts());
       } else {
+        ADJustTrackTool.trackWith('jb2vn8');
         ProductModel product = products[index];
         SpaceResultModel model = await NetworkApi.checkSpaceDetail('${product.productId}');
         if (model.spaceStatus == 2) {

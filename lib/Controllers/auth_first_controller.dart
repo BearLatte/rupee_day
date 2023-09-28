@@ -11,27 +11,11 @@ import 'package:rupee_day/models/auth_params_model.dart';
 import 'package:rupee_day/models/optical_character_model.dart';
 import 'package:rupee_day/network/index.dart';
 import 'package:rupee_day/router/app_routes.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
 
 enum OCRType { front, back, pan }
 
-enum FormItemType {
-  aadhaarNumber,
-  aadhaarName,
-  birth,
-  address,
-  panCardNumber,
-  whatsApp,
-  marriage,
-  education,
-  salary,
-  industry,
-  workTitle,
-  email,
-  facebook,
-  bankNumber,
-  bankName,
-  bankIfsc
-}
+enum FormItemType { aadhaarNumber, aadhaarName, birth, address, panCardNumber, whatsApp, marriage, education, salary, industry, workTitle, email, facebook, bankNumber, bankName, bankIfsc }
 
 enum Gender { none, male, female }
 
@@ -103,30 +87,43 @@ class AuthFirstController extends GetxController {
   void ocrImageChooseAction(OCRType type) async {
     PermissionStatus status = await Permission.camera.request();
     if (status != PermissionStatus.granted) {
-      CommonSnackbar.showSnackbar(
-          'You did not allow us to access the camera, which will help you obtain a loan. Would you like to set up authorization.');
+      CommonSnackbar.showSnackbar('You did not allow us to access the camera, which will help you obtain a loan. Would you like to set up authorization.');
       return;
     }
 
     if (type == OCRType.front) {
       var result = await Get.toNamed(AppRoutes.PhotoTips);
-      if (result != 'ok') return;
+      if (result == 'ok') {
+        ADJustTrackTool.trackWith('v7fusz');
+      } else {
+        return;
+      }
+    }
+
+    switch (type) {
+      case OCRType.front:
+        ADJustTrackTool.trackWith('5uuvp6');
+        break;
+      case OCRType.back:
+        ADJustTrackTool.trackWith('b248di');
+        break;
+      case OCRType.pan:
+        ADJustTrackTool.trackWith('pif4hb');
+        break;
     }
 
     ImagePicker picker = ImagePicker();
     XFile? file = await picker.pickImage(source: ImageSource.camera);
 
     if (file != null) {
-      OpticalCharacterModel model =
-          await NetworkApi.opticalCharacterRecognition(file.path, type: type);
+      OpticalCharacterModel model = await NetworkApi.opticalCharacterRecognition(file.path, type: type);
       switch (type) {
         case OCRType.front:
           frontImgPath = model.imagePath;
           kycFrontImg.value = '${model.imageHttp}/${model.imagePath}';
           numController.text = model.aadhaarNumber!;
           nameController.text = model.userNames!;
-          gender.value =
-              model.userGender == 'male' ? Gender.male : Gender.female;
+          gender.value = model.userGender == 'male' ? Gender.male : Gender.female;
           birthController.text = model.dateOfBirth!;
         case OCRType.back:
           backImgPath = model.imagePath;
@@ -142,8 +139,22 @@ class AuthFirstController extends GetxController {
 
   void formItemOnTap(FormItemType type) {
     switch (type) {
+      case FormItemType.aadhaarName:
+        ADJustTrackTool.trackWith('y6x2f8');
+        break;
+      case FormItemType.aadhaarNumber:
+        ADJustTrackTool.trackWith('e1uk5i');
+        break;
       case FormItemType.birth:
+        ADJustTrackTool.trackWith('nd6oa1');
         chooseDateAction();
+        break;
+      case FormItemType.address:
+        ADJustTrackTool.trackWith('gojyfi');
+        break;
+      case FormItemType.panCardNumber:
+        ADJustTrackTool.trackWith('rb8x8a');
+        break;
       default:
         break;
     }
@@ -159,8 +170,7 @@ class AuthFirstController extends GetxController {
       dateFormat: 'dd-MM-yyyy',
     );
     if (pickedDate != null) {
-      birthController.text =
-          formatDate(pickedDate, ['dd', '-', 'mm', '-', 'yyyy']);
+      birthController.text = formatDate(pickedDate, ['dd', '-', 'mm', '-', 'yyyy']);
     }
   }
 
@@ -241,8 +251,7 @@ class AuthFirstController extends GetxController {
     if (status == PermissionStatus.granted) {
     } else {
       var result = await CommonAlert.showAlert(
-        message:
-            'This feature requires you to authorize this app to open the location service\nHow to set it: open phone Settings -> Privacy -> Location service',
+        message: 'This feature requires you to authorize this app to open the location service\nHow to set it: open phone Settings -> Privacy -> Location service',
       );
       if (result == 'confirm') {
         openAppSettings();
@@ -263,7 +272,6 @@ class AuthFirstController extends GetxController {
       panNumber: panNumController.text,
     );
 
-    NetworkApi.authentication(model,
-        successCallback: () => Get.toNamed(AppRoutes.AuthSecond));
+    NetworkApi.authentication(model, successCallback: () => Get.toNamed(AppRoutes.AuthSecond));
   }
 }

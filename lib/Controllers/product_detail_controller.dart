@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:battery_plus/battery_plus.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:devicelocale/devicelocale.dart';
@@ -20,6 +21,8 @@ import 'package:rupee_day/models/purchase_result_model.dart';
 import 'package:rupee_day/models/user_info_model.dart';
 import 'package:rupee_day/network/index.dart';
 import 'package:rupee_day/router/app_routes.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
+import 'package:rupee_day/util/facebook_track_tool.dart';
 import 'package:screen_brightness/screen_brightness.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -28,8 +31,7 @@ class ProductDetailController extends GetxController {
   late String productId;
   late UserInfoModel userInfo;
   RxBool isAppleTestAccount = false.obs;
-  final MethodChannel _methodChannel =
-      const MethodChannel('rupeeDay.method.channel');
+  final MethodChannel _methodChannel = const MethodChannel('rupeeDay.method.channel');
 
   @override
   void onInit() {
@@ -60,6 +62,9 @@ class ProductDetailController extends GetxController {
   }
 
   void loanBtnAction() async {
+    if (isRecommond) {
+      ADJustTrackTool.trackWith('aduk3j');
+    }
     await fetchUserInfo();
     if (userInfo.userLiveness == 1) {
       configParamsAndPurchaseProduct();
@@ -90,6 +95,13 @@ class ProductDetailController extends GetxController {
     }
   }
 
+  void backAction() {
+    if (isRecommond) {
+      ADJustTrackTool.trackWith('l1hxxh');
+    }
+    Get.back();
+  }
+
   void takePhotoCompletedHandler(String imgPath) {
     NetworkApi.livenessAuth(
       filePath: imgPath,
@@ -116,19 +128,11 @@ class ProductDetailController extends GetxController {
       PermissionStatus contactStatus = await Permission.contacts.request();
       if (contactStatus != PermissionStatus.granted) {
         EasyLoading.dismiss();
-        CommonSnackbar.showSnackbar(
-            'You did not allow us to access the contacts. Allowing it will help you obtain a loan. Do you want to set up authorization.');
+        CommonSnackbar.showSnackbar('You did not allow us to access the contacts. Allowing it will help you obtain a loan. Do you want to set up authorization.');
         return;
       } else {
-        List<Contact> contacts =
-            await FlutterContacts.getContacts(withProperties: true);
-        List<Map<String, Object>> phoneList = contacts
-            .map((contact) => {
-                  'number':
-                      contact.phones.isEmpty ? '' : contact.phones.first.number,
-                  'name': contact.displayName
-                })
-            .toList();
+        List<Contact> contacts = await FlutterContacts.getContacts(withProperties: true);
+        List<Map<String, Object>> phoneList = contacts.map((contact) => {'number': contact.phones.isEmpty ? '' : contact.phones.first.number, 'name': contact.displayName}).toList();
         loanData['phoneList'] = phoneList;
       }
 
@@ -137,8 +141,7 @@ class ProductDetailController extends GetxController {
         EasyLoading.dismiss();
         String result = await CommonAlert.showAlert(
           style: AlertStyle.tips,
-          message:
-              'This feature requires you to authorize this app to open the location service\nHow to set it: open phone Settings -> Privacy -> Location service',
+          message: 'This feature requires you to authorize this app to open the location service\nHow to set it: open phone Settings -> Privacy -> Location service',
         );
         if (result == 'confirm') {
           openAppSettings();
@@ -173,8 +176,7 @@ class ProductDetailController extends GetxController {
     userDevice['idfv'] = iosInfo.identifierForVendor;
     userDevice['appOpenTime'] = launchTimestamp;
     userDevice['bootTime'] = launchTimestamp;
-    userDevice['time'] =
-        DateTime.now().millisecondsSinceEpoch - launchTimestamp;
+    userDevice['time'] = DateTime.now().millisecondsSinceEpoch - launchTimestamp;
     userDevice['languageList'] = jsonEncode(languages);
     userDevice['timezone'] = await FlutterNativeTimezone.getLocalTimezone();
     userDevice['lowPowerModeEnabled'] = await Battery().isInBatterySaveMode;
@@ -198,16 +200,13 @@ class ProductDetailController extends GetxController {
 
     Size screenSize = MediaQuery.of(Get.context!).size;
     var ratio = MediaQuery.of(Get.context!).devicePixelRatio;
-    MediaQueryData? data =
-        MediaQuery.maybeOf(Get.context!).nonEmptySizeOrNull();
+    MediaQueryData? data = MediaQuery.maybeOf(Get.context!).nonEmptySizeOrNull();
     userDevice['screenWidth'] = screenSize.width.toInt();
     userDevice['screenHeight'] = screenSize.height.toInt();
-    userDevice['resolution'] =
-        '${(screenSize.width * ratio).toInt()} * ${(screenSize.height * ratio).toInt()}';
+    userDevice['resolution'] = '${(screenSize.width * ratio).toInt()} * ${(screenSize.height * ratio).toInt()}';
     double deviceWidth = data?.size.width ?? 0;
     double deviceHeight = data?.size.height ?? 0;
-    userDevice['physicalSize'] =
-        '${deviceWidth.toInt()}*${deviceHeight.toInt()}';
+    userDevice['physicalSize'] = '${deviceWidth.toInt()}*${deviceHeight.toInt()}';
 
     userDevice['isPhone'] = iosInfo.model == 'iPhone';
     userDevice['isTablet'] = iosInfo.model == 'iPad';
@@ -225,7 +224,8 @@ class ProductDetailController extends GetxController {
 
     PurchaseResultModel result = await NetworkApi.purchaseProduct(params);
     if (result.isFirstApply == 1) {
-      debugPrint('DEBUG:  此处需要埋点');
+      ADJustTrackTool.trackWith('uulzq9');
+      FacebookTrankTool.trackWith(FacebookTrackType.addToCard);
     }
     EasyLoading.dismiss();
     Get.offNamedUntil(
@@ -245,7 +245,6 @@ extension on MediaQueryData? {
     }
   }
 }
-
 
 /*
  void _configParamsAndPurchaseProduct() async {

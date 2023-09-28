@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:rupee_day/Network/index.dart';
 import 'package:rupee_day/models/order_model.dart';
 import 'package:rupee_day/models/product_model.dart';
+import 'package:rupee_day/util/adjust_track_tool.dart';
 import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/views/order_tab/order_type.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -91,6 +92,13 @@ class OrderDetailController extends GetxController {
   }
 
   void repayOnTap() async {
+    if (orderType.value == OrderType.unpaid) {
+      ADJustTrackTool.trackWith('72mddk');
+    }
+    if (orderType.value == OrderType.overdue) {
+      ADJustTrackTool.trackWith('q7k1df');
+    }
+
     Map<String, dynamic> pathModel = await NetworkApi.fetchRepayPath(orderNumber: orderInfo.value.loanOrderNo, loanRepayDate: orderInfo.value.loanRepayDate!);
     if (await canLaunchUrlString(pathModel['rlkepwsayPath'])) {
       await launchUrlString(
@@ -101,13 +109,23 @@ class OrderDetailController extends GetxController {
   }
 
   void repayExtensionOnTap() async {
+    if (orderType.value == OrderType.unpaid) {
+      ADJustTrackTool.trackWith('l07p17');
+    }
+    if (orderType.value == OrderType.overdue) {
+      ADJustTrackTool.trackWith('ntho0r');
+    }
     String alertResult = await CommonAlert.showAlert(message: 'Paying a small amount admission fee. You can pay the whole bill later.');
     if (alertResult == 'confirm') {
-      Get.toNamed(AppRoutes.ExtendRepay, arguments: orderInfo.value.loanOrderNo)?.then((value) => fetchOrderDetail());
+      Get.toNamed(AppRoutes.ExtendRepay, arguments: {
+        'orderNumber': orderInfo.value.loanOrderNo,
+        'orderType': orderType.value,
+      })?.then((value) => fetchOrderDetail());
     }
   }
 
   void productItemOnTap(ProductModel product) async {
+    ADJustTrackTool.trackWith('rkw3ng');
     SpaceResultModel model = await NetworkApi.checkSpaceDetail('${product.productId}');
     if (model.spaceStatus == 2) {
       Get.toNamed(AppRoutes.ProductDetail, arguments: {'isRecommond': false, 'product': model.loanProduct});
