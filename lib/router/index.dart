@@ -10,9 +10,11 @@ import 'package:rupee_day/Controllers/feedback_list_view_controller.dart';
 import 'package:rupee_day/Controllers/loan_tab_contaoller.dart';
 import 'package:rupee_day/Controllers/login_controller.dart';
 import 'package:rupee_day/Controllers/me_controller.dart';
+import 'package:rupee_day/Controllers/order_detail_controller.dart';
 import 'package:rupee_day/Controllers/order_tab_controller.dart';
 import 'package:rupee_day/Controllers/product_detail_controller.dart';
 import 'package:rupee_day/Controllers/purchase_successed_controller.dart';
+import 'package:rupee_day/Controllers/repay_extension_controller.dart';
 import 'package:rupee_day/router/app_routes.dart';
 import 'package:rupee_day/views/auth/photo_tips_view.dart';
 import 'package:rupee_day/views/auth/step_first_view.dart';
@@ -94,8 +96,18 @@ class AppPages {
       binding: BindingsBuilder(() => Get.lazyPut(() => PurchaseSuccessedController())),
       transition: Transition.cupertino,
     ),
-    GetPage(name: AppRoutes.OrderDetail, page: () => OrderDetailView(), transition: Transition.cupertino),
-    GetPage(name: AppRoutes.ExtendRepay, page: () => const OrderRepayExtensionView(), transition: Transition.cupertino),
+    GetPage(
+      name: AppRoutes.OrderDetail,
+      page: () => OrderDetailView(),
+      transition: Transition.cupertino,
+      binding: BindingsBuilder(() => Get.lazyPut(() => OrderDetailController())),
+    ),
+    GetPage(
+      name: AppRoutes.ExtendRepay,
+      page: () => const OrderRepayExtensionView(),
+      transition: Transition.cupertino,
+      binding: BindingsBuilder(() => Get.lazyPut(() => RepayExtensionController())),
+    ),
     GetPage(
       name: AppRoutes.FeedbackList,
       page: () => FeedbackListView(),

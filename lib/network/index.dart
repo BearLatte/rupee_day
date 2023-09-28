@@ -18,6 +18,7 @@ import 'package:rupee_day/models/product_detail_model.dart';
 import 'package:rupee_day/models/product_list_model.dart';
 import 'package:rupee_day/models/product_model.dart';
 import 'package:rupee_day/models/purchase_result_model.dart';
+import 'package:rupee_day/models/repay_extension_model.dart';
 import 'package:rupee_day/models/space_result_model.dart';
 import 'package:rupee_day/models/user_info_model.dart';
 import 'package:rupee_day/network/api_base_response.dart';
@@ -283,6 +284,12 @@ class NetworkApi {
       'lXXXoaXXnRepayDate': loanRepayDate,
     });
     return result;
+  }
+
+  // 获取展期详情
+  static Future<RepayExtensionModel> fetchRepayExtensionDetail(String orderNumber) async {
+    var json = await _request('/EZDyP/lnTwMn/nfqaBX', params: {'lXXXoaXXnOrderNo': orderNumber});
+    return RepayExtensionModel.fromJson(json);
   }
 
   // 压缩图片到200kb

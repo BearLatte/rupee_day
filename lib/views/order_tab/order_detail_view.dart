@@ -6,16 +6,16 @@ import 'package:rupee_day/common/common_image.dart';
 import 'package:rupee_day/common/common_text_button.dart';
 import 'package:rupee_day/common/common_view.dart';
 import 'package:rupee_day/models/product_model.dart';
-import 'package:rupee_day/router/app_routes.dart';
 import 'package:rupee_day/util/hex_color.dart';
-import 'package:rupee_day/util/random_util.dart';
 import 'package:rupee_day/views/Product/product_list_item_view.dart';
 import 'package:rupee_day/views/order_tab/order_type.dart';
 
 class OrderDetailView extends StatelessWidget {
   OrderDetailView({super.key});
 
-  final controller = Get.put(OrderDetailController(), tag: RandomUtil.generateRandomString(5));
+  // final controller = Get.put(OrderDetailController(), tag: RandomUtil.generateRandomString(5));
+  final controller = Get.find<OrderDetailController>();
+
   @override
   Widget build(BuildContext context) {
     controller.orderNo = Get.arguments;
@@ -111,7 +111,7 @@ class OrderDetailView extends StatelessWidget {
                 if (controller.orderInfo.value?.extendButton == 1)
                   Container(
                     padding: const EdgeInsets.fromLTRB(45, 20, 45, 0),
-                    child: CommonTextButton('Repay Extension', width: 0, height: 50, borderRadius: 25, onTap: () => Get.toNamed(AppRoutes.ExtendRepay)),
+                    child: CommonTextButton('Repay Extension', width: 0, height: 50, borderRadius: 25, onTap: controller.repayExtensionOnTap),
                   )
               ],
             ),

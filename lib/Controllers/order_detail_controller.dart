@@ -7,6 +7,7 @@ import 'package:rupee_day/util/hex_color.dart';
 import 'package:rupee_day/views/order_tab/order_type.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import '../common/common_alert.dart';
 import '../models/order_detail_result_model.dart';
 import '../models/space_result_model.dart';
 import '../router/app_routes.dart';
@@ -99,7 +100,12 @@ class OrderDetailController extends GetxController {
     }
   }
 
-  void repayExtensionOnTap() {}
+  void repayExtensionOnTap() async {
+    String alertResult = await CommonAlert.showAlert(message: 'Paying a small amount admission fee. You can pay the whole bill later.');
+    if (alertResult == 'confirm') {
+      Get.toNamed(AppRoutes.ExtendRepay, arguments: orderInfo.value.loanOrderNo)?.then((value) => fetchOrderDetail());
+    }
+  }
 
   void productItemOnTap(ProductModel product) async {
     SpaceResultModel model = await NetworkApi.checkSpaceDetail('${product.productId}');
