@@ -23,6 +23,10 @@
 		22A9F4262AC2988C004CEBB0 /* TakeFacePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9F4222AC2988C004CEBB0 /* TakeFacePhotoView.swift */; };
 		22A9F4272AC2988C004CEBB0 /* FaceLivenessParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9F4232AC2988C004CEBB0 /* FaceLivenessParams.swift */; };
 		22A9F4282AC2988C004CEBB0 /* ErrorAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A9F4242AC2988C004CEBB0 /* ErrorAlertView.swift */; };
+		22EBEDF72AD0F7A0008F27DE /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EBEDF62AD0F7A0008F27DE /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		22EBEDF92AD0F7B3008F27DE /* AdServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EBEDF82AD0F7B3008F27DE /* AdServices.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		22EBEDFD2AD0F7CF008F27DE /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EBEDFC2AD0F7CF008F27DE /* AppTrackingTransparency.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		22EBEDFF2AD0F7DB008F27DE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22EBEDFE2AD0F7DB008F27DE /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
 		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
 		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
@@ -86,6 +90,10 @@
 		22A9F4232AC2988C004CEBB0 /* FaceLivenessParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceLivenessParams.swift; sourceTree = "<group>"; };
 		22A9F4242AC2988C004CEBB0 /* ErrorAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorAlertView.swift; sourceTree = "<group>"; };
 		22EBEDF52AC565C8008F27DE /* Runner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Runner.entitlements; sourceTree = "<group>"; };
+		22EBEDF62AD0F7A0008F27DE /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		22EBEDF82AD0F7B3008F27DE /* AdServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdServices.framework; path = System/Library/Frameworks/AdServices.framework; sourceTree = SDKROOT; };
+		22EBEDFC2AD0F7CF008F27DE /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppTrackingTransparency.framework; path = System/Library/Frameworks/AppTrackingTransparency.framework; sourceTree = SDKROOT; };
+		22EBEDFE2AD0F7DB008F27DE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		29BA0D5129A9AB7D0990D796 /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
 		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
 		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,6 +121,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22EBEDFF2AD0F7DB008F27DE /* WebKit.framework in Frameworks */,
+				22EBEDFD2AD0F7CF008F27DE /* AppTrackingTransparency.framework in Frameworks */,
+				22EBEDF92AD0F7B3008F27DE /* AdServices.framework in Frameworks */,
+				22EBEDF72AD0F7A0008F27DE /* AdSupport.framework in Frameworks */,
 				22A9F4162AC2986C004CEBB0 /* libDFActionLivenessDetector.a in Frameworks */,
 				151F435F4ED6F85405B76CFB /* Pods_Runner.framework in Frameworks */,
 			);
@@ -243,6 +255,10 @@
 		E9294E6F75E7C55E0CF1B140 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				22EBEDFE2AD0F7DB008F27DE /* WebKit.framework */,
+				22EBEDFC2AD0F7CF008F27DE /* AppTrackingTransparency.framework */,
+				22EBEDF82AD0F7B3008F27DE /* AdServices.framework */,
+				22EBEDF62AD0F7A0008F27DE /* AdSupport.framework */,
 				528844C96FF56D12945A4597 /* Pods_Runner.framework */,
 				6D4C5D4580CF146B5376A633 /* Pods_RunnerTests.framework */,
 			);
@@ -388,7 +404,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin\n";
 		};
 		63AA98E8555ADF58A806A484 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -567,7 +583,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 7R9X78KKXW;
+				DEVELOPMENT_TEAM = RAFGHRS2P5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -756,7 +772,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 7R9X78KKXW;
+				DEVELOPMENT_TEAM = RAFGHRS2P5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -789,7 +805,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Runner/Runner.entitlements;
 				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 7R9X78KKXW;
+				DEVELOPMENT_TEAM = RAFGHRS2P5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Runner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
