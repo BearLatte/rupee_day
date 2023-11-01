@@ -233,7 +233,8 @@ class NetworkApi {
   }
 
   static Future changeBankCard({required String cardNumber, required String bankName, required String ifscCode}) async {
-    await _request('/EZDyP/lnTwMn/RCtjf', params: {'bXXXanXXkCardNo': cardNumber, 'bXXXanXXkCardName': bankName, 'bXXXanXXkIfscCode': ifscCode});
+    await _request('/EZDyP/lnTwMn/RCtjf',
+        params: {'bXXXanXXkCardNo': cardNumber, 'bXXXanXXkCardName': bankName, 'bXXXanXXkIfscCode': ifscCode});
   }
 
   static Future<List<FeedbackModel>> fetchFeedbackList() async {
@@ -267,7 +268,7 @@ class NetworkApi {
       params['fXXXeeXXdBackImg'] = feedBackImg;
     }
     await _request('/EZDyP/lnTwMn/UbCON', params: params);
-    if (successCallback != null) successCallback!();
+    if (successCallback != null) successCallback();
   }
 
   // 订单详情
@@ -277,7 +278,8 @@ class NetworkApi {
   }
 
   // 获取还款路径
-  static Future<Map<String, dynamic>> fetchRepayPath({required String orderNumber, String repayType = 'all', required String loanRepayDate}) async {
+  static Future<Map<String, dynamic>> fetchRepayPath(
+      {required String orderNumber, String repayType = 'all', required String loanRepayDate}) async {
     Map<String, dynamic> result = await _request('/EZDyP/lnTwMn/sYByG', params: {
       'lXXXoaXXnOrderNo': orderNumber,
       'rXXXepXXayType': repayType,
@@ -296,14 +298,14 @@ class NetworkApi {
   static Future<Uint8List> compressImageToLower200kB(String filePath) async {
     Uint8List imageCompressed = Uint8List(0);
     for (int i = 0; i < 100; i++) {
-      Uint8List? stempList = await FlutterImageCompress.compressWithFile(
+      Uint8List? stampList = await FlutterImageCompress.compressWithFile(
         filePath,
         minWidth: 1024,
         minHeight: 768,
         quality: 100 - i,
       );
-      if (stempList != null && stempList.length <= 200000) {
-        imageCompressed = stempList;
+      if (stampList != null && stampList.length <= 200000) {
+        imageCompressed = stampList;
       }
     }
     return imageCompressed;

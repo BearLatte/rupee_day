@@ -43,7 +43,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>You did not allow us to access the camera, which will help you obtain a loan. Would you like to set up authorization.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-    <string>You did not allow us to access the Photo Library, which will help you obtain a loan. Would you like to set up authorization.</string>
+  <string>You did not allow us to access the Photo Library, which will help you obtain a loan. Would you like to set up authorization.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Please allow us to use location information, which will help you obtain a loan, otherwise you will not be able to apply for a loan.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -55,22 +55,22 @@
 	</dict>
 	<key>NSContactsUsageDescription</key>
 	<string>Please allow us to use Contacts information, which will help you obtain a loan, otherwise you will not be able to apply for a loan.</string>
-    <key>FLTEnableImpeller</key>
-    <false/>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fbAPP-ID</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>APP-ID</string>
-    <key>FacebookClientToken</key>
-    <string>CLIENT-TOKEN</string>
-    <key>FacebookDisplayName</key>
-    <string>Rupee Day</string>
+  <key>FLTEnableImpeller</key>
+  <false/>
+  <key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>fbAPP-ID</string>
+		</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>APP-ID</string>
+	<key>FacebookClientToken</key>
+	<string>CLIENT-TOKEN</string>
+	<key>FacebookDisplayName</key>
+	<string>Rupee Day</string>
 </dict>
 </plist>

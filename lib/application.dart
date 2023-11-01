@@ -22,11 +22,7 @@ class Application extends StatelessWidget {
       initialRoute: AppPages.INITIAL,
       defaultTransition: Transition.downToUp,
       getPages: AppPages.routes,
-      theme: ThemeData(
-        colorScheme: ColorScheme.light(
-          primary: HexColor('#E09754'),
-        ),
-      ),
+      theme: ThemeData(colorScheme: ColorScheme.light(primary: HexColor('#E09754'))),
       builder: EasyLoading.init(),
       onInit: () async {
         await Global.requestIdfa();

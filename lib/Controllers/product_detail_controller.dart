@@ -44,10 +44,7 @@ class ProductDetailController extends GetxController {
     super.onReady();
     _methodChannel.setMethodCallHandler((call) async {
       if (call.method == 'livenessCompleted') {
-        livenessCompletionsHandler(
-          call.arguments['imgPath'],
-          call.arguments['score'],
-        );
+        livenessCompletionsHandler(call.arguments['imgPath'], call.arguments['score']);
       }
 
       if (call.method == 'takePhotoCompleted') {
@@ -128,11 +125,15 @@ class ProductDetailController extends GetxController {
       PermissionStatus contactStatus = await Permission.contacts.request();
       if (contactStatus != PermissionStatus.granted) {
         EasyLoading.dismiss();
-        CommonSnackbar.showSnackbar('You did not allow us to access the contacts. Allowing it will help you obtain a loan. Do you want to set up authorization.');
+        CommonSnackbar.showSnackbar(
+            'You did not allow us to access the contacts. Allowing it will help you obtain a loan. Do you want to set up authorization.');
         return;
       } else {
         List<Contact> contacts = await FlutterContacts.getContacts(withProperties: true);
-        List<Map<String, Object>> phoneList = contacts.map((contact) => {'number': contact.phones.isEmpty ? '' : contact.phones.first.number, 'name': contact.displayName}).toList();
+        List<Map<String, Object>> phoneList = contacts
+            .map((contact) =>
+                {'number': contact.phones.isEmpty ? '' : contact.phones.first.number, 'name': contact.displayName})
+            .toList();
         loanData['phoneList'] = phoneList;
       }
 
@@ -141,7 +142,8 @@ class ProductDetailController extends GetxController {
         EasyLoading.dismiss();
         String result = await CommonAlert.showAlert(
           style: AlertStyle.tips,
-          message: 'This feature requires you to authorize this app to open the location service\nHow to set it: open phone Settings -> Privacy -> Location service',
+          message:
+              'This feature requires you to authorize this app to open the location service\nHow to set it: open phone Settings -> Privacy -> Location service',
         );
         if (result == 'confirm') {
           openAppSettings();
